@@ -1,46 +1,24 @@
 # LXR Installer
-The lxr.sh script aids with the installation of Linux Cross Referencer by installing all necessary dependencies and running scripts
+The lxr.sh script aids with the installation of Linux Cross Referencer
 
 ## Installation
-Move the lxr.sh file to the desired directory where your LXR will reside. Run the script as root.
+Move the lxr.sh file to the desired directory where your LXR will reside, go to that directory, and run the script as root.
 ```bash
 sudo ./lxr.sh
 ```
-When prompted for LXR configuration, hit enter for these following prompts to select the default:
+
+The script will download all nececcary dependencies and auto-fill most user input.
+Once running, the script will prompt for a password as shown below. Enter 'lxrpw' and the script should begin initializing the MySQL databases.
 ```bash
-Configure for single/multiple trees? [S/m] >
-Do you intend to add other trees later? [yes/NO] >
-Hostname or IP? [//localhost] >
---- Alias name ? (hit return to stop) >
-URL section name for LXR in your server? [/lxr] >
-Database engine? [MYSQL/oracle/postgres/sqlite] >
+Enter password: 
 ```
 
-The following prompts require the user to enter custom input:
+The password 'lxrpw' will need to be entered once more to configure the tables.
 ```bash
---- Directory for glimpse databases? > glimpse_DB
+*** MySQL - Creating tree user lxr
+Enter password: 
 ```
 
-Once again, for the following prompts, hit enter to select the default option:
-```bash
---- Use 'buttons-and-menus' instead of ;ink interface? [YES/no] >
-Do you need a specific encoding for this tree ? [yes/NO] >
-How is your tree stored? [FILES/cvs/git/subversion/bitkeeper] ?
-```
+After that, the script will begin indexing through the kernel source code which may take several hours.
 
-For the following prompts, enter information as follows:
-```bash
----Source directory? (e.g. /home/myself/project-tree) > kernel
-```
-
-Hit enter for the following prompts to select the default option:
-```bash
-Name to display for the path root? (e.g. Project or $v for version) [$v] >
-Label for version selection menu? [Version] >
-Version enumeration method? [LIST/file/function] >
-```
-
-For the next prompt, enter v1 for version name as follows:
-```bash
---- Version name? (hit return to stop) > v1
-```
+Once completed, open a web browser and go to http://localhost/lxr/source to begin viewing the kernel source code!
