@@ -5,7 +5,8 @@ apt-get install -y libdbi-perl libdbd-mysql-perl libfile-mmagic-perl libapache2-
 
 wget https://sourceforge.net/projects/lxr/files/stable/lxr-2.3.5.tgz
 
-tar -zxf lxr-2.3.5.tgz
+tar xf lxr-2.3.5.tgz
+rm -r lxr-2.3.5.tgz
 mv lxr-2.3.5 lxr
 
 cd lxr
@@ -15,6 +16,7 @@ cp custom.d/lxr.conf .
 
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.16.tar.xz
 tar xf linux-5.4.16.tar.xz
+rm -r linux-5.4.16.tar.xz
 mkdir /home/myself
 mkdir /home/myself/kernel
 mkdir /home/myself/kernel/v1
