@@ -21,3 +21,8 @@ mkdir glimpse_DB
 mv linux-5.4.16 kernel/v1
 
 ./usr/local/share/lxr/genxref --url=http://localhost/lxr
+
+cp custom.d/apache-lxrserver.conf /etc/apache2/conf-available
+a2enconf apache-lxrserver.conf
+mkdir /etc/httpd
+cp custom.d/apache-lxrserver.conf /etc/httpd/conf.d
