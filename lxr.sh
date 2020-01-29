@@ -22,9 +22,12 @@ mkdir /home/myself/kernel
 mkdir /home/myself/kernel/v1
 mv linux-5.4.16 /home/myself/kernel/v1
 
-./genxref --url=http://localhost/lxr
+./genxref --url=http://localhost/lxr&
 
 cp custom.d/apache-lxrserver.conf /etc/apache2/conf-available
 a2enconf apache-lxrserver.conf
 mkdir /etc/httpd
 cp custom.d/apache-lxrserver.conf /etc/httpd/conf.d
+a2dismod mpm*
+a2enmod mpm_worker
+systemctl restart apache2
